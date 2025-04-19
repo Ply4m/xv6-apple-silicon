@@ -6,7 +6,7 @@ You’ll be using `riscv64-elf-gcc`, `riscv64-elf-binutils`, and `qemu` — no n
 
 ---
 
-## ✅ Requirements
+## Requirements
 
 - macOS 11+ (Apple Silicon)
 - Homebrew
@@ -15,7 +15,7 @@ You’ll be using `riscv64-elf-gcc`, `riscv64-elf-binutils`, and `qemu` — no n
 
 ---
 
-## 🛠️ Setup
+## Setup
 
 ### 1. Install Homebrew (if not already)
 
@@ -45,7 +45,7 @@ which riscv64-elf-gcc
 
 ---
 
-## 📦 Clone xv6 and Build
+## Clone xv6 and Build
 
 ```bash
 git clone https://github.com/mit-pdos/xv6-riscv.git
@@ -53,11 +53,11 @@ cd xv6-riscv
 make TOOLPREFIX=riscv64-elf- qemu
 ```
 
-> ⚠️ You must specify `TOOLPREFIX=riscv64-elf-` so that `make` knows to use your installed toolchain.
+> You must specify `TOOLPREFIX=riscv64-elf-` so that `make` knows to use your installed toolchain.
 
 ---
 
-## 💡 Notes for Apple Silicon
+## Notes for Apple Silicon
 
 - Use the Terminal or iTerm2 — some other terminal emulators might cause QEMU to behave incorrectly.
 - You do **not** need the full `riscv-gnu-toolchain` to build xv6.
@@ -65,7 +65,7 @@ make TOOLPREFIX=riscv64-elf- qemu
 
 ---
 
-## 🧠 Optional: Avoid Repeating TOOLPREFIX
+## Optional: Avoid Repeating TOOLPREFIX
 
 If you don't want to pass `TOOLPREFIX` every time, add the following to the top of the `Makefile`:
 
@@ -75,7 +75,7 @@ TOOLPREFIX = riscv64-elf-
 
 ---
 
-## 🧪 Tested On
+## Tested On
 
 - ✅ macOS Sequoia 14.4
 - ✅ Apple M4 Pro
@@ -84,7 +84,7 @@ TOOLPREFIX = riscv64-elf-
 
 ---
 
-## 📚 Resources
+## Resources
 
 - [xv6-riscv GitHub Repo](https://github.com/mit-pdos/xv6-riscv)
 - [6.S081 (MIT OS Course)](https://pdos.csail.mit.edu/6.828/2023/)
@@ -92,6 +92,6 @@ TOOLPREFIX = riscv64-elf-
 
 ---
 
-## 🏷 Tags
+## Tags
 
 `xv6` `risc-v` `macos` `apple-silicon` `m1` `m2` `m3` `m4` `qemu` `osdev`
