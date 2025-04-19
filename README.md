@@ -89,9 +89,3 @@ TOOLPREFIX = riscv64-elf-
 - [xv6-riscv GitHub Repo](https://github.com/mit-pdos/xv6-riscv)
 - [6.S081 (MIT OS Course)](https://pdos.csail.mit.edu/6.828/2023/)
 - [QEMU RISC-V Docs](https://wiki.qemu.org/Documentation/Platforms/RISCV)
-
----
-
-## Tags
-
-`xv6` `risc-v` `macos` `apple-silicon` `m1` `m2` `m3` `m4` `qemu` `osdev`
