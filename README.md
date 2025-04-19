@@ -77,10 +77,10 @@ TOOLPREFIX = riscv64-elf-
 
 ## Tested On
 
-- ✅ macOS Sequoia 15.4
-- ✅ Apple M4 Pro
-- ✅ QEMU 9.2.3 (via Homebrew)
-- ✅ riscv64-elf-gcc 14.2.0
+- macOS Sequoia 15.4
+- Apple M4 Pro
+- QEMU 9.2.3 (via Homebrew)
+- riscv64-elf-gcc 14.2.0
 
 ---
 
