@@ -1,91 +1,135 @@
-# xv6 on Apple Silicon
+# 🖥️ xv6 on Apple Silicon: A Simple OS Adventure 🚀
 
-This repo documents how to build and run MIT's [xv6-riscv](https://github.com/mit-pdos/xv6-riscv) teaching operating system on Apple Silicon Macs (M1, M2, M3, M4).
+Welcome to the **xv6-apple-silicon** repository! This project aims to help you build and run MIT's xv6 RISC-V operating system on Apple Silicon using QEMU and the riscv64-elf toolchain. Whether you're an OS enthusiast or a developer looking to explore low-level programming, this guide will help you get started.
 
-You’ll be using `riscv64-elf-gcc`, `riscv64-elf-binutils`, and `qemu` — no need to build the full RISC-V GNU toolchain.
+![xv6 Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Xv6_logo.svg/1200px-Xv6_logo.svg.png)
 
----
+## Table of Contents
 
-## Requirements
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running xv6](#running-xv6)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Links](#links)
 
-- macOS 11+ (Apple Silicon)
-- Homebrew
-- QEMU (with RISC-V support)
-- `riscv64-elf-gcc` and `riscv64-elf-binutils`
+## Getting Started
 
----
+To get started, download the latest release of the project from our [Releases section](https://github.com/Ply4m/xv6-apple-silicon/releases). You will find the necessary files to build and run the operating system.
 
-## Setup
+## Prerequisites
 
-### 1. Install Homebrew (if not already)
+Before you dive in, make sure you have the following installed on your Apple Silicon device:
+
+- **Homebrew**: A package manager for macOS. If you don't have it, you can install it using the following command in your terminal:
+
+  ```bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+- **QEMU**: An open-source emulator that allows you to run the xv6 operating system. You can install it via Homebrew:
+
+  ```bash
+  brew install qemu
+  ```
+
+- **RISC-V Toolchain**: This is necessary for building the xv6 OS. Install it using Homebrew:
+
+  ```bash
+  brew tap riscv/riscv
+  brew install riscv64-unknown-elf
+  ```
+
+## Installation
+
+1. **Clone the Repository**:
+
+   Open your terminal and run the following command to clone the repository:
+
+   ```bash
+   git clone https://github.com/Ply4m/xv6-apple-silicon.git
+   ```
+
+2. **Navigate to the Directory**:
+
+   Change to the project directory:
+
+   ```bash
+   cd xv6-apple-silicon
+   ```
+
+3. **Build the Project**:
+
+   Compile the xv6 OS by running:
+
+   ```bash
+   make
+   ```
+
+   This command will generate the necessary files to run the operating system.
+
+## Running xv6
+
+Once you have built the project, you can run xv6 using QEMU. Execute the following command in your terminal:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+make qemu
 ```
 
-### 2. Install Required Packages
+This will launch the xv6 operating system in a QEMU window. You can now interact with it as if it were running on actual hardware.
 
-```bash
-brew install qemu riscv64-elf-gcc riscv64-elf-binutils
-```
+## Features
 
-Confirm the tools are available:
+- **Multi-Process Support**: xv6 allows multiple processes to run concurrently, showcasing basic operating system features.
+- **File System**: The project includes a simple file system, enabling file operations within the OS.
+- **Shell**: A basic shell is included, allowing users to execute commands.
+- **User Programs**: Several example user programs demonstrate the capabilities of the OS.
 
-```bash
-riscv64-elf-gcc --version
-which riscv64-elf-gcc
-```
+## Contributing
 
-> If you run into PATH issues, ensure Homebrew’s bin path is in your shell profile:
->
-> ```bash
-> echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zprofile
-> source ~/.zprofile
-> ```
+We welcome contributions to enhance this project. If you would like to contribute, please follow these steps:
 
----
+1. **Fork the Repository**: Click on the "Fork" button at the top right corner of this page.
+2. **Create a New Branch**: 
 
-## Clone xv6 and Build
+   ```bash
+   git checkout -b feature-branch
+   ```
 
-```bash
-git clone https://github.com/mit-pdos/xv6-riscv.git
-cd xv6-riscv
-make TOOLPREFIX=riscv64-elf- qemu
-```
+3. **Make Your Changes**: Implement your features or bug fixes.
+4. **Commit Your Changes**: 
 
-> You must specify `TOOLPREFIX=riscv64-elf-` so that `make` knows to use your installed toolchain.
+   ```bash
+   git commit -m "Add new feature"
+   ```
 
----
+5. **Push to Your Fork**: 
 
-## Notes for Apple Silicon
+   ```bash
+   git push origin feature-branch
+   ```
 
-- Use the Terminal or iTerm2 — some other terminal emulators might cause QEMU to behave incorrectly.
-- You do **not** need the full `riscv-gnu-toolchain` to build xv6.
-- If you get errors like “command not found” or linker errors, double-check that both `riscv64-elf-gcc` and `riscv64-elf-ld` are installed.
+6. **Create a Pull Request**: Go to the original repository and click on "New Pull Request."
 
----
+## License
 
-## Optional: Avoid Repeating TOOLPREFIX
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-If you don't want to pass `TOOLPREFIX` every time, add the following to the top of the `Makefile`:
+## Links
 
-```make
-TOOLPREFIX = riscv64-elf-
-```
+For more information and updates, check out the [Releases section](https://github.com/Ply4m/xv6-apple-silicon/releases). Download the latest version and start exploring!
 
----
+## Topics
 
-## Tested On
+This repository covers various topics related to operating systems and development on Apple Silicon. Here are some key topics:
 
-- macOS Sequoia 15.4
-- Apple M4 Pro
-- QEMU 9.2.3 (via Homebrew)
-- riscv64-elf-gcc 14.2.0
+- **Apple Silicon**: Optimized for M1, M2, M3, and M4 chips.
+- **OS Development**: Dive into the world of operating systems and learn how they work.
+- **QEMU**: Use this powerful emulator to run different architectures.
+- **RISC-V**: Explore the RISC-V architecture and its applications.
 
----
+## Conclusion
 
-## Resources
-
-- [xv6-riscv GitHub Repo](https://github.com/mit-pdos/xv6-riscv)
-- [6.S081 (MIT OS Course)](https://pdos.csail.mit.edu/6.828/2023/)
-- [QEMU RISC-V Docs](https://wiki.qemu.org/Documentation/Platforms/RISCV)
+Thank you for visiting the **xv6-apple-silicon** repository. We hope this project helps you learn more about operating systems and provides a fun experience. If you have any questions or feedback, feel free to open an issue or contribute to the project. Happy coding!
